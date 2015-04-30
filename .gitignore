@@ -1,3 +1,6 @@
+# Executable
+libfts
+
 # Object files
 *.o
 *.ko
