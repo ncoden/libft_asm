@@ -6,7 +6,7 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:21:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/04/29 20:17:41 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/04/30 19:40:33 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ size_t			ft_strlen(const char *s);
 void			ft_putstr(const char *s);
 void			ft_putchr(char c);
 int				ft_puts(const char *s);
+void			*ft_memset(void *mem, int c, size_t n);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:20:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/04/29 21:10:41 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/04/30 19:47:29 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,33 @@ int				main(void)
 	ret = ft_puts(0);
 	ft_putstr("} (retour = ");
 	ft_putnbr(ret);
+
+	ft_strcpy(mem1, "..........");
+	ft_putstr("\n\n --- memset --- \n");
+	ft_putstr("memset de 3x \"A\" : {");
+	ft_memset(mem1, 'A', 3);
+	ft_putstr(mem1);
+	ft_putstr("}\nmemset de 0x \"B\" : {");
+	ft_memset(mem1, 'B', 0);
+	ft_putstr(mem1);
+	ft_putstr("}\nmemset dans NULL : OK");
+	ft_memset(NULL, 'C', 3);
+
+	ft_strcpy(mem1, "..........");
+	ft_strcpy(mem2, "HelloXXXXX");
+	ft_putstr("\n\n --- memcpy --- \n");
+	ft_putstr("Copie de \"Hello\" : {");
+	ft_memcpy(mem1, mem2, 5);
+	ft_putstr(mem1);
+	ft_putstr("}\nCopie 0 carracteres : {");
+	ft_strcpy(mem2, "XXXXXXXXX");
+	ft_memcpy(mem1, mem2, 0);
+	ft_putstr(mem1);
+	ft_putstr("}\nCopie vers NULL : {");
+	ft_memcpy(NULL, mem2, 0);
+	ft_putstr(mem1);
+	ft_putstr("}\nCopie depuis NULL : {");
+	ft_memcpy(mem1, NULL, 0);
+	ft_putstr(mem1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/29 06:56:00 by ncoden            #+#    #+#              #
-#    Updated: 2015/04/29 20:16:36 by ncoden           ###   ########.fr        #
+#    Updated: 2015/04/30 19:40:02 by ncoden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRC = \
 	ft_putstr.s\
 	ft_putchr.s\
 	ft_puts.s\
-
+	ft_memset.s\
+	ft_memcpy.s\
 
 # **************************************************************************** #
 
@@ -59,7 +60,7 @@ EXTENSIONS = .c .s
 # **************************************************************************** #
 
 .PHONY: all $(NAME) build clean fclean re dev
-#.SILENT:
+.SILENT:
 
 LIBS = $(addprefix $(LIBDIR)/, $(LIB))
 LIBS_DIRS = $(sort $(dir $(LIBS)))
