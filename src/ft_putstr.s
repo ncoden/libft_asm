@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/29 20:16:05 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/04/30 18:01:55 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -21,22 +21,23 @@ section .text
 	extern		_ft_strlen
 
 _ft_putstr:
-	cmp			rdi, 0			; Check s
+	cmp			rdi, 0				; Check s
 	je			end
 
 	push		rax
 	push		rdx
 	push		rsi
 
-								; Prepare write syscall :
-	call		_ft_strlen
-	mov			rdx, rax		; - %rdx, str lenght
-	mov			rsi, rdi		; - %rsi, str
-	mov			rax, CALL_WRITE	; - %rax, command number
-	mov			rdi, STDOUT		; - %rdi, out number
+									; Prepare write syscall :
+	call		_ft_strlen			;	get lenght
+	mov			rdx, rax			; - %rdx, str lenght
+
+	mov			rsi, rdi			; - %rsi, str
+	mov			rax, CALL_WRITE		; - %rax, command number
+	mov			rdi, STDOUT			; - %rdi, out number
 	syscall
 
-	mov			rdi, rsi		; reset values
+	mov			rdi, rsi			; reset values
 	pop			rsi
 	pop			rdx
 	pop			rax
