@@ -6,17 +6,17 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/30 18:01:55 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/04/30 18:47:14 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define			CALL_WRITE		(0x2000004)
-%define			STDOUT			(1)
+%define			CALL_WRITE			(0x2000004)
+%define			STDOUT				(1)
 
 ;	ft_puts
 ;	%rdi : char	*			s
 
-section .text
+SECTION .text
 	global		_ft_putstr
 	extern		_ft_strlen
 

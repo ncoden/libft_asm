@@ -6,20 +6,17 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/30 18:00:38 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/04/30 18:47:57 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define			CALL_WRITE		(0x2000004)
-%define			STDOUT			(1)
+%define			CALL_WRITE			(0x2000004)
+%define			STDOUT				(1)
 
 ;	ft_putchr
 ;	%rdi : char				c
 
-section .data
-	chr			db 0
-
-section .text
+SECTION .text
 	global		_ft_putchr
 
 _ft_putchr:
@@ -42,3 +39,6 @@ _ft_putchr:
 	pop			rdx
 	pop			rax
 	ret
+
+SECTION .data
+	chr			db 0
