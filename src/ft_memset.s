@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/30 18:52:15 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/30 19:32:50 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 16:37:32 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -30,10 +30,10 @@ _ft_memset:
 	mov			rcx, rdx			;  - %rcx : n, iteration number
 
 	cld
-	rep			stosb				; do loop
+	rep			stosb				; Do loop
 
-	pop			rcx					; reset values
-	mov			rax, rdi			; return mem
+	pop			rcx					; Reset used registers
+	mov			rax, rdi			; Return mem
 
 end:
 	ret

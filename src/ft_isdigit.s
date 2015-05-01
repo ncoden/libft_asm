@@ -6,22 +6,23 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 16:26:57 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/29 17:35:29 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 16:33:19 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ;	ft_isdigit
 ;	%rdi : char				c
 
-section .text
+SECTION .text
 	global		_ft_isdigit
 
 _ft_isdigit:
-	cmp			rdi, '0'		; if c < '0', return false
+	cmp			rdi, '0'			; If c < '0', return FALSE
 	jl			return_false
-	cmp			rdi, '9'		; if c > '9', return false
+	cmp			rdi, '9'			; If c > '9', return FALSE
 	jg			return_false
-	mov			rax, 1			; else, return true
+
+	mov			rax, 1				; Else, return TRUE
 	ret
 
 return_false:

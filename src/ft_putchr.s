@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/30 18:47:57 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 16:35:27 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -34,7 +34,7 @@ _ft_putchr:
 	mov			rdi, STDOUT			; - %rdi, out number
 	syscall
 
-	pop			rdi					; reset values
+	pop			rdi					; Reset used register
 	pop			rsi
 	pop			rdx
 	pop			rax

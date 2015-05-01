@@ -6,25 +6,25 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 15:43:05 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/29 17:34:54 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 17:28:35 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ;	ft_tolower
 ;	%rdi : char				c
 
-section .text
+SECTION .text
 	global		_ft_tolower
 
 _ft_tolower:
-	mov			rax, rdi
+	mov			rax, rdi			; Prepare c return
 
-	cmp			rdi, 'A'		; if c < 'A', return c
+	cmp			rdi, 'A'			; If c < 'A', return c
 	jl			end
-	cmp			rdi, 'Z'		; if c > 'Z', return c
+	cmp			rdi, 'Z'			; If c > 'Z', return c
 	jg			end
 
-	add			rax, 32			; if 'A' <= c <= 'Z', transform return
+	add			rax, 32				; If 'A' <= c <= 'Z', transform return
 
 end:
 	ret

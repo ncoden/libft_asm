@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/30 18:47:14 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 17:29:33 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -17,8 +17,9 @@
 ;	%rdi : char	*			s
 
 SECTION .text
-	global		_ft_putstr
 	extern		_ft_strlen
+
+	global		_ft_putstr
 
 _ft_putstr:
 	cmp			rdi, 0				; Check s
@@ -30,14 +31,14 @@ _ft_putstr:
 
 									; Prepare write syscall :
 	call		_ft_strlen			;	get lenght
-	mov			rdx, rax			; - %rdx, str lenght
+	mov			rdx, rax			; - %rdx : str lenght
 
-	mov			rsi, rdi			; - %rsi, str
-	mov			rax, CALL_WRITE		; - %rax, command number
-	mov			rdi, STDOUT			; - %rdi, out number
+	mov			rsi, rdi			; - %rsi : str
+	mov			rax, CALL_WRITE		; - %rax : command number
+	mov			rdi, STDOUT			; - %rdi : out number
 	syscall
 
-	mov			rdi, rsi			; reset values
+	mov			rdi, rsi			; Reset used registers
 	pop			rsi
 	pop			rdx
 	pop			rax
