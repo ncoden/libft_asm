@@ -6,17 +6,20 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:20:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/04/30 19:47:29 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/05/01 17:20:07 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfts.h"
+	#include <stdio.h>
 
 int				main(void)
 {
 	int			ret;
 	char		mem1[50] = "";
 	char		mem2[50] = "";
+	char		*ptr1;
+	char		*ptr2;
 
 	ft_putstr(" --- bzero --- \n");
 	ft_strcpy(mem1, "ABCDEF");
@@ -179,5 +182,23 @@ int				main(void)
 	ft_putstr("}\nCopie depuis NULL : {");
 	ft_memcpy(mem1, NULL, 0);
 	ft_putstr(mem1);
+
+	ft_strcpy(mem1, "ABC123");
+	ft_putstr("\n\n --- strdup --- \n");
+	ft_putstr("Creation de \"ABC123\" : {");
+	ptr1 = ft_strdup(mem1);
+	ft_putstr(ptr1);
+	ft_strcpy(mem1, "DEF456");
+	ft_putstr("}\nCreation de \"DEF456\" : {");
+	ptr2 = ft_strdup(mem1);
+	ft_putstr(ptr2);
+	ft_putstr("}\nRelecture de \"ABC123\" : {");
+	ft_putstr(ptr1);
+	ft_putstr("}\nCreation de NULL : {");
+	ptr2 = ft_strdup(NULL);
+	ft_putstr(ptr2);
+	ft_putstr("}\nRelecture de \"ABC123\" : {");
+	ft_putstr(ptr1);
+	
 	return (0);
 }
