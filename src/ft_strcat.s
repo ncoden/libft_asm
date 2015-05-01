@@ -6,44 +6,48 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 14:08:21 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/29 16:28:25 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 17:35:58 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-;	ft_bzero
+;	ft_strcat
 ;	%rdi : char *			dst
 ;	%rsi : const char *		src
 
-section .text
+SECTION .text
+	extern	_ft_strcpy
+
 	global	_ft_strcat
 
 _ft_strcat:
-	cmp			rdi, 0			; check mem
-	je			end
-	cmp			rsi, 0			; check n
-	je			end
+	cmp			rdi, 0				; Check dst
+	je			return_null
+	cmp			rsi, 0				; Check src
+	je			return_null
 
 	push		rdi
-	push		rsi
+	push		rcx
 
-loop_to_end:					; move to the dst end
-	cmp	byte	[rdi], 0
-	je			loop_copy
-	inc			rdi
-	jmp			loop_to_end
+									; Move to the dst end
+									; Prepare SCAS loop with :
+	sub			al, al				;  - %al : 0, the char to search
+	sub			rcx, rcx			;  - %rcx : !0, (infinite loop)
+	not			rcx
 
-loop_copy:
-	mov byte	al, [rsi]		; copy src to dst
-	mov byte	[rdi], al
-	inc			rdi
-	inc			rsi
-	cmp	byte	[rsi], 0
-	jne			loop_copy
+	cld
+	repne		scasb				; Do loop
 
-	mov	byte	[rdi], 0		; copy the last \0
+	dec			rdi					; Back on the \0 (to overwrite it)
 
-end:
-	pop			rsi
+	call		_ft_strcpy			; Copy src to dst : strcpy with
+									;  - %rdi : dst, destination end
+									;  - %rsi : src, source
+
+	pop			rcx					; Reset used registers
 	pop			rdi
-	mov			rax, rdi		; return dst
+	mov			rax, rdi			; Return dst start
+	ret
+
+return_null
+	mov			rax, 0
 	ret
