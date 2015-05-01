@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 13:49:26 by ncoden            #+#    #+#              ;
-;    Updated: 2015/04/29 17:35:16 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/01 16:27:43 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -14,23 +14,25 @@
 ;	%rdi : void *			mem
 ;	%rsi : size_t			n
 
-section .text
+SECTION .text
 	global		_ft_bzero
 
 _ft_bzero:
-	cmp			rdi, 0			; check mem
-	je			end
-	cmp			rsi, 0			; check n
+	cmp			rdi, 0				; Check mem
 	je			end
 
-	push		rdi
-	mov			rcx, rsi		; prepare loop (%rxc turns)
+	push		rcx
 
-while:							; foreach char in mem;
-	mov	byte	[rdi], 0		;	 clear char
-	inc			rdi
-	loop		while
+									; STOS loop with :
+									;  - %rdi : mem, start memory adress
+	mov			rax, 0				;  - %rax : 0, char to copy in mem
+	mov			rcx, rsi			;  - %rcx : n, iteration number
+
+	cld
+	rep			stosb				; Do loop
+
+	pop			rcx					; Reset used registers
+	mov			rax, rdi			; Return mem
 
 end:
-	pop			rdi
 	ret
