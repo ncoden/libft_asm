@@ -6,12 +6,13 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:20:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/05/01 17:20:07 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/05/02 16:19:49 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libfts.h"
-	#include <stdio.h>
+#include "libfts_main.h"
+#include <stdio.h>
+#include <fcntl.h>
 
 int				main(void)
 {
@@ -20,6 +21,8 @@ int				main(void)
 	char		mem2[50] = "";
 	char		*ptr1;
 	char		*ptr2;
+	int			fd;
+	char		buffer[2048];
 
 	ft_putstr(" --- bzero --- \n");
 	ft_strcpy(mem1, "ABCDEF");
@@ -158,7 +161,7 @@ int				main(void)
 	ft_strcpy(mem1, "..........");
 	ft_putstr("\n\n --- memset --- \n");
 	ft_putstr("memset de 3x \"A\" : {");
-	ft_memset(mem1, 'A', 3);
+	ft_memset(mem1 + 2, 'A', 3);
 	ft_putstr(mem1);
 	ft_putstr("}\nmemset de 0x \"B\" : {");
 	ft_memset(mem1, 'B', 0);
@@ -199,6 +202,10 @@ int				main(void)
 	ft_putstr(ptr2);
 	ft_putstr("}\nRelecture de \"ABC123\" : {");
 	ft_putstr(ptr1);
-	
+
+	ft_putstr("}\n\n --- cat --- \n");
+	fd = open("Makefile", O_RDONLY);
+	ft_cat(fd, buffer);
+
 	return (0);
 }

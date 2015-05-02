@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/30 18:52:15 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/01 17:25:31 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 07:23:09 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -54,7 +54,7 @@ _ft_strdup:
 									;  - %rdx : n, number of char to copy
 	call		_ft_memcpy
 
-return
+return:
 	pop			rdx					; Reset used registers
 	pop			rsi
 	pop			rdi

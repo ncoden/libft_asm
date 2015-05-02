@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/01 17:30:56 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/01 17:38:08 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 07:23:20 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -45,6 +45,6 @@ _ft_strcpy:
 	mov			rax, rdi			; Return dst
 	ret
 
-return_null
+return_null:
 	mov			rax, 0
 	ret
