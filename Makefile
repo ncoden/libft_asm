@@ -6,7 +6,7 @@
 #    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/29 06:56:00 by ncoden            #+#    #+#              #
-#    Updated: 2015/05/02 15:15:09 by ncoden           ###   ########.fr        #
+#    Updated: 2015/05/02 19:08:05 by ncoden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libfts.a
 CC = gcc
 CCFLAGS = -Wall -Werror -Wextra
 
-ASM = ~/.brew/Cellar/nasm/2.11.06/bin/nasm
+ASM = ~/.brew/Cellar/nasm/2.11.08own/bin/nasm
 ASMFLAGS = -f macho64
 LNKFLAGS = -macosx_version_min 10.8 -lSystem
 

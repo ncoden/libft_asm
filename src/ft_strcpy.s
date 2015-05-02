@@ -6,18 +6,17 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/01 17:30:56 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 07:23:20 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 17:06:27 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
+
+%include "libfts.hs"
 
 ;	ft_strcpy
 ;	%rdi : char *			dst
 ;	%rsi : const char *		src
 
 SECTION .text
-	extern	_ft_strlen
-	extern	_ft_memcpy
-
 	global	_ft_strcpy
 
 _ft_strcpy:

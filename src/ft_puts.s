@@ -6,17 +6,16 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 15:18:12 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 17:26:53 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
+
+%include "libfts.hs"
 
 ;	ft_puts
 ;	%rdi : char	*			s
 
 SECTION .text
-	extern		_ft_putstr
-	extern		_ft_putchr
-
 	global		_ft_puts
 
 _ft_puts:
@@ -34,7 +33,7 @@ _ft_puts:
 
 print_null:
 	;mov byte	[rel nullstr], 'x'
-	lea		rdi, [rel nullstr]		; Print "(null)\n"
+	lea			rdi, [rel nullstr]		; Print "(null)\n"
 	call		_ft_putstr
 
 return_true:

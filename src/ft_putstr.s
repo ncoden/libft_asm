@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 16:34:31 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 16:57:47 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -16,8 +16,6 @@
 ;	%rdi : char	*			s
 
 SECTION .text
-	extern		_ft_strlen
-
 	global		_ft_putstr
 
 _ft_putstr:

@@ -6,18 +6,16 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/30 18:52:15 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 07:23:09 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 17:06:32 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
+
+%include "libfts.hs"
 
 ;	ft_strdup
 ;	%rdi : char *				s
 
 SECTION .text
-	extern		_malloc
-	extern		_ft_memcpy
-	extern		_ft_strlen
-
 	global		_ft_strdup
 
 _ft_strdup:

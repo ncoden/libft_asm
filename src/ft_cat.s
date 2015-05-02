@@ -6,7 +6,7 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/02 12:25:01 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 16:34:19 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 17:24:05 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -16,7 +16,6 @@
 ;	%rdi : int			fd (file descriptor)
 
 SECTION .text
-	extern		_ft_putnbr
 	global		_ft_cat
 
 _ft_cat:

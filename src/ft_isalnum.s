@@ -6,17 +6,16 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 16:31:41 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/01 16:31:31 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 17:05:46 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
+
+%include "libfts.hs"
 
 ;	ft_isalnum
 ;	%rdi : char				c
 
 SECTION .text
-	extern		_ft_isalpha
-	extern		_ft_isdigit
-
 	global		_ft_isalnum
 
 _ft_isalnum:
