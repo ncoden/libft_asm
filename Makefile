@@ -6,7 +6,7 @@
 #    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/29 06:56:00 by ncoden            #+#    #+#              #
-#    Updated: 2015/05/01 17:36:11 by ncoden           ###   ########.fr        #
+#    Updated: 2015/05/02 15:15:09 by ncoden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libfts.a
 CC = gcc
 CCFLAGS = -Wall -Werror -Wextra
 
-ASM = ~/.brew/bin/nasm
+ASM = ~/.brew/Cellar/nasm/2.11.06/bin/nasm
 ASMFLAGS = -f macho64
 LNKFLAGS = -macosx_version_min 10.8 -lSystem
 
@@ -35,6 +35,7 @@ SRC = \
 	ft_bzero.s\
 	ft_strcat.s\
 	ft_isalpha.s\
+	ft_isdigit.s\
 	ft_isalnum.s\
 	ft_isascii.s\
 	ft_isprint.s\
@@ -48,6 +49,7 @@ SRC = \
 	ft_memcpy.s\
 	ft_strdup.s\
 	ft_strcpy.s\
+	ft_cat.s\
 
 # **************************************************************************** #
 
@@ -56,7 +58,7 @@ DEVNAME = libfts
 DEVMAIN = main.c
 
 # ALLOWED EXTENSIONS
-EXTENSIONS = .c .s
+EXTENSIONS = .c .s .S
 
 
 # **************************************************************************** #
@@ -65,15 +67,15 @@ EXTENSIONS = .c .s
 .SILENT:
 
 LIBS = $(addprefix $(LIBDIR)/, $(LIB))
-LIBS_DIRS = $(sort $(dir $(LIBS)))
 
 SRC := $(filter $(addprefix %, $(EXTENSIONS)), $(SRC))
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 OBJS = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SRC))))
 OBJS_DIRS = $(sort $(dir $(OBJS)))
 
-INCDIR += $(LIBS_DIRS)
-INCS = $(addprefix -I , $(INCDIR))
+INCS_DIRS = $(addsuffix /, $(INCDIR))
+INCS_DIRS += $(addsuffix /, $(dir $(LIBS)))
+INCS = $(addprefix -I , $(INCS_DIRS))
 
 TEMPNAME = $(addprefix $(OBJDIR)/, $(NAME))
 DEVMAIN_OBJ = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(DEVMAIN))))

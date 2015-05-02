@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libfts.h                                           :+:      :+:    :+:   */
+/*   libfts_main.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:21:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/05/01 17:36:41 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/05/02 16:30:04 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTS_H
-# define LIBFTS_H
+#ifndef LIBFTS_MAIN_H
+# define LIBFTS_MAIN_H
 
 # include "libft.h"
 
@@ -32,5 +32,7 @@ void			*ft_memset(void *mem, int c, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 char			*ft_strdup(const char *s);
 char			*ft_strcpy(char *dst, const char *src);
+
+void			ft_cat(int fd, char *buffer);
 
 #endif
