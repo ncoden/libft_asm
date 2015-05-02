@@ -6,12 +6,11 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/29 17:27:27 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/01 17:29:33 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/02 16:34:31 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define			CALL_WRITE			(0x2000004)
-%define			STDOUT				(1)
+%include "libfts.hs"
 
 ;	ft_puts
 ;	%rdi : char	*			s
@@ -23,9 +22,8 @@ SECTION .text
 
 _ft_putstr:
 	cmp			rdi, 0				; Check s
-	je			end
+	je			return_null
 
-	push		rax
 	push		rdx
 	push		rsi
 
@@ -41,7 +39,9 @@ _ft_putstr:
 	mov			rdi, rsi			; Reset used registers
 	pop			rsi
 	pop			rdx
-	pop			rax
+	mov			rax, 1				; Return TRUE
+	ret
 
-end:
+return_null:
+	mov			rax, 0
 	ret

@@ -10,8 +10,7 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%define			CALL_WRITE			(0x2000004)
-%define			STDOUT				(1)
+%include "libfts.hs"
 
 ;	ft_putchr
 ;	%rdi : char				c
