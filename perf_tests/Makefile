@@ -6,11 +6,11 @@
 #    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/29 06:56:00 by ncoden            #+#    #+#              #
-#    Updated: 2015/05/03 15:18:50 by ncoden           ###   ########.fr        #
+#    Updated: 2015/05/03 17:31:15 by ncoden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libfts.a
+NAME = perf_tests
 
 # COMPILATION
 CC = gcc
@@ -24,43 +24,24 @@ LNKFLAGS = -macosx_version_min 10.8 -lSystem
 # DIRECTORIES
 LIBDIR = .
 SRCDIR = src
+TESTDIR = tests
 OBJDIR = obj
 INCDIR = \
 	includes\
-	libft/includes
+	../libft/includes
 
 # SOURCES
 LIB = \
-	libft/libft.a
+	../libft/libft.a
 SRC = \
-	ft_bzero.s\
-	ft_strcat.s\
-	ft_isalpha.s\
-	ft_isdigit.s\
-	ft_isalnum.s\
-	ft_isascii.s\
-	ft_isprint.s\
-	ft_toupper.s\
-	ft_tolower.s\
-	ft_strlen.s\
-	ft_putstr.s\
-	ft_putchr.s\
-	ft_puts.s\
-	ft_memset.s\
-	ft_memcpy.s\
-	ft_strdup.s\
-	ft_strcpy.s\
-	ft_cat.s\
+	main.c\
+TESTS = \
+	test_register_copy.s
 
 # **************************************************************************** #
 
-# DEBUG
-DEVNAME = libfts
-DEVMAIN = main.c
-
 # ALLOWED EXTENSIONS
 EXTENSIONS = .c .s
-
 
 # **************************************************************************** #
 
@@ -69,8 +50,8 @@ EXTENSIONS = .c .s
 
 LIBS = $(addprefix $(LIBDIR)/, $(LIB))
 
+SRC += TESTS
 SRC := $(filter $(addprefix %, $(EXTENSIONS)), $(SRC))
-SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 OBJS = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SRC))))
 OBJS_DIRS = $(sort $(dir $(OBJS)))
 
@@ -78,14 +59,9 @@ INCS_DIRS = $(addsuffix /, $(INCDIR))
 INCS_DIRS += $(addsuffix /, $(dir $(LIBS)))
 INCS = $(addprefix -I , $(INCS_DIRS))
 
-TEMPNAME = $(addprefix $(OBJDIR)/, $(NAME))
-DEVMAIN_OBJ = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(DEVMAIN))))
-
 all: $(NAME)
 $(NAME): build $(LIBS) $(OBJS)
-	ar rc $(TEMPNAME) $(OBJS)
-	libtool -static -o $(NAME) $(TEMPNAME) $(LIBS)
-	ranlib $(NAME)
+	gcc -o $(NAME) $(LIBS) $(OBJS) $(INCS)
 build:
 	mkdir -p $(OBJDIR)
 	mkdir -p $(OBJS_DIRS)
@@ -97,13 +73,13 @@ fclean: clean
 	rm -f $(NAME)
 re: fclean all
 
-dev: build $(LIBS) $(OBJS) $(DEVMAIN_OBJ)
-	gcc -o $(DEVNAME) $(LIBS) $(OBJS) $(DEVMAIN_OBJ) $(INCS)
-	./$(DEVNAME)
-
 $(LIBDIR)/%.a:
 	make -s -C $(@D)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c -o $@ $< $(INCS) $(CCFLAGS)
 $(OBJDIR)/%.o: $(SRCDIR)/%.s
+	$(ASM) -o $@ $< $(INCS) $(ASMFLAGS)
+$(OBJDIR)/%.o: $(TESTDIR)/%.c
+	$(CC) -c -o $@ $< $(INCS) $(CCFLAGS)
+$(OBJDIR)/%.o: $(TESTDIR)/%.s
 	$(ASM) -o $@ $< $(INCS) $(ASMFLAGS)
