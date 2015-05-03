@@ -6,7 +6,7 @@
 #    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/29 06:56:00 by ncoden            #+#    #+#              #
-#    Updated: 2015/05/03 15:18:50 by ncoden           ###   ########.fr        #
+#    Updated: 2015/05/03 23:18:26 by ncoden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ NAME = libfts.a
 CC = gcc
 CCFLAGS = -Wall -Werror -Wextra
 
-ASM = ~/.brew/Cellar/nasm/2.11.08own/bin/nasm
-# 2.11.08own : NASM modified to accept extern redeclaration as global
+ASM = ~/.brew/Cellar/nasm/dev/bin/nasm
+# dev : NASM v2.11.08 modified to accept extern redeclaration as global
 ASMFLAGS = -f macho64
 LNKFLAGS = -macosx_version_min 10.8 -lSystem
 
