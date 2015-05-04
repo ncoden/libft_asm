@@ -6,12 +6,12 @@
 ;    By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/02 14:10:51 by ncoden            #+#    #+#              ;
-;    Updated: 2015/05/02 19:19:53 by ncoden           ###   ########.fr        ;
+;    Updated: 2015/05/04 16:02:54 by ncoden           ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-%ifndef LIBFTS_MAIN_H
-	%define LIBFTS_MAIN_H
+%ifndef LIBFTS_MAIN_HS
+	%define LIBFTS_MAIN_HS
 
 	%define CALL_READ			(0x2000003)
 	%define CALL_WRITE			(0x2000004)
