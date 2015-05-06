@@ -38,5 +38,6 @@
 	extern						_ft_strlen
 	extern						_ft_tolower
 	extern						_ft_toupper
+	extern						_ft_putnbr
 
 %endif

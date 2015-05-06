@@ -6,7 +6,7 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:20:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/05/02 16:19:49 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/05/07 00:11:16 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,14 @@ int				main(void)
 	ft_putstr("}\n\n --- cat --- \n");
 	fd = open("Makefile", O_RDONLY);
 	ft_cat(fd, buffer);
+
+	ft_putstr("\n\n --- putnbr --- \n");
+	ft_putstr("Ecrire \"42\" : {");
+	ft_putnbr(42);
+	ft_putstr("}\nEcrire \"0\" : {");
+	ft_putnbr(0);
+	ft_putstr("}\nEcrire \"-8\" : {");
+	ft_putnbr(-42);
 
 	return (0);
 }

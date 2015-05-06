@@ -6,7 +6,7 @@
 /*   By: ncoden <ncoden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 07:21:47 by ncoden            #+#    #+#             */
-/*   Updated: 2015/05/02 16:30:04 by ncoden           ###   ########.fr       */
+/*   Updated: 2015/05/06 20:24:58 by ncoden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ char			*ft_strdup(const char *s);
 char			*ft_strcpy(char *dst, const char *src);
 
 void			ft_cat(int fd, char *buffer);
+
+void			ft_putnbr(int nbr);
 
 #endif
