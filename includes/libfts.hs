@@ -40,4 +40,8 @@
 	extern						_ft_toupper
 	extern						_ft_putnbr
 
+	extern						_ft_putchr_fd
+	extern						_ft_putstr_fd
+	extern						_ft_putnbr_fd
+
 %endif
